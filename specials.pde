@@ -41,7 +41,9 @@ class Special {
       delete = true;
     }
     if (type == 2) {
-      in.shoot(PVector.random2D(), false);
+      PVector direction = in.getVelocity();
+      direction.rotate(random(3 * PI / 4, 5 * PI / 4));
+      in.shoot(direction, false);
     }
     if (type == 3) {
       for (Block b : blocks) 

@@ -12,11 +12,11 @@ import org.jbox2d.dynamics.contacts.*;
 
 SoundFile blop;
 SoundFile zap;
-ArrayList<Ball> balls = new ArrayList<Ball>();
-ArrayList<Block> blocks = new ArrayList<Block>();
-ArrayList<Boundary> boundaries = new ArrayList<Boundary>();
-ArrayList<Special> specials = new ArrayList<Special>();
-ArrayList<ParticleSystem> fireworks = new ArrayList<ParticleSystem>();
+ArrayList<Ball> balls;
+ArrayList<Block> blocks;
+ArrayList<Boundary> boundaries;
+ArrayList<Special> specials;
+ArrayList<ParticleSystem> fireworks;
 PVector mouseInit, mouseFinal;
 boolean aimed;
 
@@ -53,6 +53,11 @@ void setup() {
   textFont(createFont("wagner.ttf", 32));
   blop = new SoundFile(this, "blop.wav");
   zap = new SoundFile(this, "zap.wav");
+  balls = new ArrayList<Ball>();
+  blocks = new ArrayList<Block>();
+  boundaries = new ArrayList<Boundary>();
+  specials = new ArrayList<Special>();
+  fireworks = new ArrayList<ParticleSystem>();
   world = new Box2DProcessing(this);
   world.createWorld();
   world.setGravity(0, 0);
@@ -91,7 +96,6 @@ void draw() {
 
 void game() {
 
-  //Kinda simulaion phase
   world.step();
   bg();
   for (int i = blocks.size()-1; i >= 0; i--) {

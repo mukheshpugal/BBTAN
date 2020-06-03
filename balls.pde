@@ -41,6 +41,10 @@ class Ball {
     atRest = false;
     onDaFloor = correct;
   }
+  
+  PVector getVelocity() {
+    return new PVector(body.getLinearVelocity().x, body.getLinearVelocity().y);
+  }
 
   void show() {
     fill(255);

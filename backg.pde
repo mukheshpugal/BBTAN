@@ -21,6 +21,9 @@ void bg() {
       timerDisplay = "0" + timerDisplay;
     if (secrem < 10)
       timerDisplay = timerDisplay + "0";
+      
+    if ((secrem == 0) && (minrem == 0))
+      exit();
     
     timerDisplay+= secrem;
     text(timerDisplay, width - 10, height - (width / 14.0) - 7);
