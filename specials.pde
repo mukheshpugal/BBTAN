@@ -50,6 +50,7 @@ class Special {
       noStroke();
       fill(250, 250, 0, 200);
       rect(0, (locY + 0.5) * width / nBlocks + (height / 2) - (width / 2) - radius, width, 2 * radius);
+      playZap = true;
     }
     if (type == 4) {
       for (Block b : blocks) 
@@ -58,6 +59,7 @@ class Special {
       noStroke();
       fill(250, 250, 0, 200);
       rect((locX + 0.5) * width / nBlocks - radius, 0, 2 * radius, height);
+      playZap = true;
     }
   }
 

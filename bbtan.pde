@@ -11,6 +11,7 @@ import org.jbox2d.dynamics.*;
 import org.jbox2d.dynamics.contacts.*;
 
 SoundFile blop;
+SoundFile zap;
 ArrayList<Ball> balls = new ArrayList<Ball>();
 ArrayList<Block> blocks = new ArrayList<Block>();
 ArrayList<Boundary> boundaries = new ArrayList<Boundary>();
@@ -41,6 +42,7 @@ boolean processing;
 boolean shootActive;
 boolean triggerAnim;
 boolean playBlop;
+boolean playZap;
 PVector shootDir;
 
 Ball c;
@@ -50,6 +52,7 @@ void setup() {
   background(0);
   textFont(createFont("wagner.ttf", 32));
   blop = new SoundFile(this, "blop.wav");
+  zap = new SoundFile(this, "zap.wav");
   world = new Box2DProcessing(this);
   world.createWorld();
   world.setGravity(0, 0);
@@ -118,9 +121,13 @@ void game() {
       fireworks.remove(i);
     }
   }
-  if (playBlop && (frameCount % 5 == 0)) {
+  if (playBlop && (frameCount % 10 == 0)) {
     blop.play();
     playBlop = false;
+  }
+  if (playZap && (frameCount % 10 == 0)) {
+    zap.play();
+    playZap = false;
   }
 
   //Level up phase
